@@ -2,7 +2,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    <a class="site-title" href="{{ "/" | relative_url }}"><img src="{{ "/assets/images/centre-brou-baudieres.svg/" | prepend: site.baseurl }}" alt="{{ site.title | escape }}" role="image"></a>
 
     <nav class="site-nav">
       {% for link in site.data.navigation.main %}
