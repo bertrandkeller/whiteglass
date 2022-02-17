@@ -64,6 +64,11 @@ defaults:
       layout: "post"
       category: "citoyens"
 
+collections:
+  actions:
+    output: true
+    permalink: /:collection/:name
+
 # Plugins
 plugins:
   - jekyll-archives
@@ -77,7 +82,7 @@ excerpt_separator: "<!-- more -->"
 # Outputting
 permalink: /:categories/:year/:month/:day/:title.html
 paginate_path: /posts/:num/
-paginate: 1
+paginate: 100
 
 # Markdown settings
 kramdown:

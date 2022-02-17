@@ -6,27 +6,40 @@ layout: default
 
   {{ content }}
 
+  <br><br>
+
+  <h2>Les actions du conseils</h2>
+
+  <ul class="post-list">
+    {% for action in site.actions %}
+    <li>
+      <h3 class="post-title">
+        <a href="{{ site.baseurl }}{{ action.url }}">{{ action.title }}</a>
+      </h3>
+    </li>
+    {% endfor %}
+  </ul>
   {% capture site_lang %}{{ site.lang | default: "en" }}{% endcapture %}
+
+  <h2>Les dernières actualités</h2>
 
   <ul class="post-list">
     {% for post in site.posts %}
 
       {% if post.path contains 'citoyens' %}
 
-
-
       {% capture post_lang %}{{ post.lang | default: site_lang }}{% endcapture %}
       {% capture lang %}{% if post_lang != site_lang %}{{ post_lang }}{% endif %}{% endcapture %}
 
       <li{% if lang != empty %} lang="{{ lang }}"{% endif %}>
         <header class="post-header">
-          <h2 class="post-title">
+          <h3 class="post-title">
             {% if post.external-url %}
               <a class="post-link" href="{{ post.external-url }}">{{ post.title | escape }} &rarr;</a>
             {% else %}
               <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
             {% endif %}
-          </h2>
+          </h3>
 
           <p class="post-meta">
             {% include date.html date=post.date lang=lang %}
