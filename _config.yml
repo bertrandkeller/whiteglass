@@ -68,6 +68,9 @@ collections:
   actions:
     output: true
     permalink: /:collection/:name
+  citoyens:
+    output: true
+    permalink: /:collection/:name
 
 # Plugins
 plugins:

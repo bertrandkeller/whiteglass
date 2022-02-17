@@ -8,7 +8,7 @@ layout: default
 
   <br><br>
 
-  <h2>Les actions du conseils</h2>
+  <h2>Les actions en cours du conseil</h2>
 
   <ul class="post-list">
     {% for action in site.actions %}
@@ -22,12 +22,10 @@ layout: default
 
   {% capture site_lang %}{{ site.lang | default: "en" }}{% endcapture %}
 
-  <h2>Les dernières actualités</h2>
+  <h2>Les dernières actualités des citoyens</h2>
 
   <ul class="post-list">
-    {% for post in site.posts %}
-
-      {% if post.path contains 'citoyens' %}
+    {% for post in site.citoyens %}
 
       {% capture post_lang %}{{ post.lang | default: site_lang }}{% endcapture %}
       {% capture lang %}{% if post_lang != site_lang %}{{ post_lang }}{% endif %}{% endcapture %}
@@ -54,7 +52,7 @@ layout: default
         </header>
 
       </li>
-      {% endif %}
+
     {% endfor %}
   </ul>
 
