@@ -74,19 +74,23 @@
 }
 
 .post-list {
-  margin-left: 0;
+  margin: $spacing-unit * 2 0 $spacing-unit;
   list-style: none;
 
   .post-link:hover {
     text-decoration: none;
   }
 
+  h2 {
+    font-size: 1.5em;
+  }
+
   > li {
-    margin-bottom: $spacing-unit * 2;
+    margin-bottom: 0;
 
     &:not(:first-child) {
-      border-top: 4px solid $grey-color-light;
-      padding-top: $spacing-unit * 2;
+      border-top: 2px solid $grey-color-light;
+      padding-top: $spacing-unit / 2;
     }
   }
 }
@@ -144,7 +148,7 @@
  * Posts
  */
 .post-header {
-  margin-bottom: $spacing-unit;
+  margin-bottom: $spacing-unit / 2;
 }
 
 .post-title {

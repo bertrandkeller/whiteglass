@@ -39,6 +39,31 @@ facebook_image:
 google_analytics:
 comments: false
 
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "page"
+  -
+    scope:
+      path: "citoyens"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: "_posts/citoyens/"
+      type: "posts"
+    values:
+      layout: "post"
+      category: "citoyens"
+
 # Plugins
 plugins:
   - jekyll-archives
@@ -50,9 +75,9 @@ markdown: kramdown
 excerpt_separator: "<!-- more -->"
 
 # Outputting
-permalink: /:year/:month/:day/:title/
+permalink: /:categories/:year/:month/:day/:title.html
 paginate_path: /posts/:num/
-paginate: 5
+paginate: 1
 
 # Markdown settings
 kramdown:

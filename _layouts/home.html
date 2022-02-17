@@ -10,6 +10,7 @@ layout: default
 
   <ul class="post-list">
     {% for post in paginator.posts %}
+    {% unless post.path contains 'citoyens' %}
       {% capture post_lang %}{{ post.lang | default: site_lang }}{% endcapture %}
       {% capture lang %}{% if post_lang != site_lang %}{{ post_lang }}{% endif %}{% endcapture %}
 
@@ -43,9 +44,9 @@ layout: default
           </p>
         {% endif %}
       </li>
+    {% endunless %}
     {% endfor %}
   </ul>
 
   {% include pagination.html %}
-
 </div>
