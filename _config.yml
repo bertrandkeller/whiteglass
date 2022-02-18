@@ -63,6 +63,12 @@ defaults:
     values:
       layout: "post"
       category: "citoyens"
+  -
+    scope:
+      path: "_citoyens/"
+    values:
+      layout: "post"
+
 
 collections:
   actions:
@@ -70,7 +76,7 @@ collections:
     permalink: /:collection/:name
   citoyens:
     output: true
-    permalink: /:collection/:name
+    permalink: /citoyens/:collection/:name
 
 # Plugins
 plugins:

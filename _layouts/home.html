@@ -14,9 +14,9 @@ layout: default
       {% capture post_lang %}{{ post.lang | default: site_lang }}{% endcapture %}
       {% capture lang %}{% if post_lang != site_lang %}{{ post_lang }}{% endif %}{% endcapture %}
 
-      <li{% if lang != empty %} lang="{{ lang }}"{% endif %}>
+      <li{% if lang != empty %} lang="{{ lang }}"{% endif %} {% if forloop.first == false %} class="small"{% endif %}>
         <header class="post-header">
-          <h3 class="post-title">
+          <h3 class="post-title{% if forloop.first == true %} bigger{% endif %}">
             {% if post.external-url %}
               <a class="post-link" href="{{ post.external-url }}">{{ post.title | escape }} &rarr;</a>
             {% else %}

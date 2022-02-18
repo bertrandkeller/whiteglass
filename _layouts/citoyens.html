@@ -12,9 +12,9 @@ layout: default
 
   <ul class="post-list">
     {% for action in site.actions %}
-    <li>
+    <li class="small">
       <h3 class="post-title">
-        <a href="{{ site.baseurl }}{{ action.url }}">{{ action.title }}</a>
+        <a class="post-link" href="{{ site.baseurl }}{{ action.url }}">{{ action.title }}</a>
       </h3>
     </li>
     {% endfor %}
@@ -22,7 +22,7 @@ layout: default
 
   {% capture site_lang %}{{ site.lang | default: "en" }}{% endcapture %}
 
-  <h2>Les dernières actualités des citoyens</h2>
+  <h2>Les dernières actualités des conseillers</h2>
 
   <ul class="post-list">
     {% for post in site.citoyens %}
@@ -30,7 +30,7 @@ layout: default
       {% capture post_lang %}{{ post.lang | default: site_lang }}{% endcapture %}
       {% capture lang %}{% if post_lang != site_lang %}{{ post_lang }}{% endif %}{% endcapture %}
 
-      <li{% if lang != empty %} lang="{{ lang }}"{% endif %}>
+      <li class="small" {% if lang != empty %} lang="{{ lang }}"{% endif %}>
         <header class="post-header">
           <h3 class="post-title">
             {% if post.external-url %}
