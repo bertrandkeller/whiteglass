@@ -5,7 +5,7 @@
     <a class="site-title" href="{{ "/" | relative_url }}"><img src="{{ "/assets/centre-brou-baudieres.svg" | relative_url }}" alt="{{ site.title | escape }}" role="image"></a>
 
     <nav class="site-nav">
-      {% for link in site.data.navigation.main %}
+      {% for link in site.data.navigation.main | sort:weight %}
         {% if link.url contains "http" %}
           {% assign url = link.url %}
         {% else %}
