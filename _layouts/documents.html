@@ -1,0 +1,75 @@
+---
+layout: default
+---
+
+<div class="archive">
+
+  <h1 class="page-heading">{% include i18n.html value="documents" default="Documents" %}</h1>
+
+  {{ content }}
+
+  {% assign titledoc1 = "" | split:"," %}
+  {% assign titledoc2 = "" | split:"," %}
+  {% assign titledoc3 = "" | split:"," %}
+  {% for file in site.static_files %}
+    {% if file.path contains "documents/" %}
+    {% assign pathdoc = file.path | split:"/" %}
+    {% for path in pathdoc %}
+    {% if forloop.length == 4 %}
+      {% if forloop.index == 3 %}
+      {% unless titledoc1 contains path %}
+        {% assign titledoc1 = titledoc1 | push: path %}
+        {% endunless %}
+      {% endif %}
+    {% endif %}
+    {% if forloop.length == 5 %}
+      {% if forloop.index == 3 %}
+      {% unless titledoc1 contains path %}
+        {% assign titledoc1 = titledoc1 | push: path %}
+        {% endunless %}
+      {% endif %}
+      {% if forloop.index == 4 %}
+      {% assign value = pathdoc[2] | append: "/" | append: path %}
+      {% unless titledoc2 contains value %}
+        {% assign titledoc2 = titledoc2 | push: value %}
+      {% endunless %}
+      {% unless titledoc3 contains pathdoc[2] %}
+        {% assign titledoc3 = titledoc3 | push: pathdoc[2] %}
+      {% endunless %}
+      {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+  {% for doc in titledoc1 %}
+  <h2>{{ doc | split: "-" | join: " " | capitalize }}</h2>
+  {% if titledoc3 contains doc %}
+    {% for doc2 in titledoc2 %}
+      {% assign arraydoc = doc | split:"," %}
+      {% assign arraydoc2 = doc2 | split: "/" %}
+      {% if arraydoc2 contains doc %}
+        {% assign value  = doc | append: "/" %}
+        {% assign folder = doc2 | replace: value, '' %}
+        <h3>{{ folder | split: "-" | join: " " | capitalize }}</h3>
+        <ul>
+        {% for file in site.static_files %}
+          {% if file.path contains folder %}
+          <li><a href="{{ file.path }}">{{ file.name }}</a></li>
+          {% endif %}
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <ul>
+    {% for file in site.static_files %}
+      {% assign folder2 = doc | append: "/" %}
+      {% if file.path contains folder2 %}
+      <li><a href="{{ file.path }}">{{ file.name }}</a></li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  {% endif %}
+  {% endfor %}
+</div>
