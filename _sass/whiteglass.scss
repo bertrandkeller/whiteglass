@@ -45,13 +45,18 @@ $on-laptop:        800px !default;
   "whiteglass/syntax-highlighting"
 ;
 
+.grid-2 {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+}
+
 .center {
   display: grid;
   place-items: center;
   margin: 1.5rem auto;
 }
 
-.btn {
+.btn,.btn:visited {
   padding: 0.5rem 1rem;
   font-size: 125%;
   color: #fdfdfd;
