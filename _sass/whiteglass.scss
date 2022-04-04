@@ -44,3 +44,23 @@ $on-laptop:        800px !default;
   "whiteglass/layout",
   "whiteglass/syntax-highlighting"
 ;
+
+.center {
+  display: grid;
+  place-items: center;
+  margin: 1.5rem auto;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 125%;
+  color: #fdfdfd;
+  background: #333;
+  border: 2px solid;
+  border-radius: 4px;
+  &:hover {
+    color: #000;
+    background: #fafafa;
+    text-decoration: none;
+  }
+}

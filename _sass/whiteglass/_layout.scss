@@ -85,8 +85,6 @@
   }
 
   h2,h3 {
-    font-size: 1.2em;
-    margin: 0 0 0.2em;
     &.bigger {
       font-size: 1.8em;
     }
@@ -203,34 +201,18 @@
 
 h1 {
   font-size: 36px;
-
-  @include media-query($on-laptop) {
-    font-size: 36px;
-  }
 }
 
 h2 {
   font-size: 28px;
-
-  @include media-query($on-laptop) {
-    font-size: 28px;
-  }
 }
 
 h3 {
   font-size: 20px;
-
-  @include media-query($on-laptop) {
-    font-size: 20px;
-  }
 }
 
 h4 {
   font-size: 18px;
-
-  @include media-query($on-laptop) {
-    font-size: 18px;
-  }
 }
 
 
